@@ -1,0 +1,42 @@
+@mixin generalStyles ($color, $fontSize, $fontStyle, $margin, $textAlign) {
+      color: $color;
+      font-size: $fontSize;
+      font-style: $fontStyle;
+      margin: $margin;
+      text-align: $textAlign;
+}
+@mixin images {
+    display: block;
+    margin: 0 auto;
+    border: 2px solid green;
+}
+body {
+  background-color: black;
+}
+img {
+  @include images;
+}
+%part {
+  @include generalStyles(#eee, 25px, auto, 25px, justify);
+}
+.intro {
+
+      h1  {
+        @include generalStyles(#eee, 60px, arabian, 40px, center);
+      }
+      .part1 {
+          @extend %part;
+          > a {
+            color: green;
+          }
+      }
+      .part2 {
+          @extend %part;
+      }
+      .part3 {
+          @extend %part;
+      }
+      .footer {
+          @extend %part;
+      }
+}
